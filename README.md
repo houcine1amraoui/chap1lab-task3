@@ -1,7 +1,7 @@
 # Task 3: Axios Demo
 
 In previous task, you have learned how to send request and read response using the browser and API clients such as Postman.
-In this task, you will learn how to send HTTP request directly from the code using Axios JavaScript Library and how to handle server responses and read their headers and body.
+In this task, you will learn how to send HTTP request directly from the code using Axios library and how to handle server responses and read their headers and body.
 
 ## Project Preparation
 1.	Clone or download the code from the following GitHub repo: https://github.com/houcine1amraoui/task3-axios-demo
