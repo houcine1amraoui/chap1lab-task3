@@ -2,9 +2,9 @@ const express = require("express");
 const path = require("path");
 const users = require("./users");
 const app = express();
-// app.use(express.json());
 
 app.get("/api/users", (req, res) => {
+  console.log(req.headers["user-agent"]);
   res.json(users);
 });
 
