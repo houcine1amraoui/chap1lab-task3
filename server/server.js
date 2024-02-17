@@ -3,9 +3,18 @@ const path = require("path");
 const users = require("./users");
 const app = express();
 
-app.get("/api/users", (req, res) => {
+app.use(express.json());
+app.get("/users", (req, res) => {
   console.log(req.headers["user-agent"]);
   res.json(users);
+});
+
+app.post("/users", (req, res) => {
+  const givenId = req.body.id;
+  const result = users.filter((user) => {
+    return user.id === givenId;
+  });
+  res.json(result);
 });
 
 const PORT = 3000;
