@@ -1,4 +1,4 @@
-const axios = require("axios");
+import axios from "axios";
 
 const getAllUsers = async () => {
   const response = await axios.get("http://localhost:3000/users");
@@ -19,5 +19,5 @@ const getOneUser = async () => {
   console.log(response.data);
 };
 
-// getAllUsers();
-// getOneUser();
+getAllUsers();
+getOneUser();

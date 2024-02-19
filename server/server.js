@@ -1,9 +1,9 @@
-const express = require("express");
-const path = require("path");
-const users = require("./users");
+import express, { json } from "express";
+import { users } from "./users.js";
 const app = express();
 
-app.use(express.json());
+app.use(json());
+
 app.get("/users", (req, res) => {
   console.log(req.headers["user-agent"]);
   res.json(users);
