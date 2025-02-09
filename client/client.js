@@ -1,9 +1,9 @@
-import axios from "axios";
-
 const getAllUsers = async () => {
-  const response = await axios.get("http://localhost:3000/users");
-  console.log(response.data);
-  console.log(response.headers["x-powered-by"]);
+  const res = await fetch("http://localhost:3000/users");
+  // const response = await axios.get("http://localhost:3000/users");
+  const users = await res.json();
+  console.log(users);
+  // console.log(response.headers["x-powered-by"]);
 };
 
 const getOneUser = async () => {
@@ -20,4 +20,4 @@ const getOneUser = async () => {
 };
 
 getAllUsers();
-getOneUser();
+// getOneUser();
