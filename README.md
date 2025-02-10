@@ -1,4 +1,4 @@
-# Chapter 1 Lab - Task 3: Axios Client
+# Chapter 1 Lab - Task 3: AJAX - JavaScript-initiated Asynchronous Requests
 
 In previous task, you have learned how to send request and read response using the browser and API clients such as Postman.
 In this task, you will learn how to send HTTP request directly from the code using Axios library and how to handle server responses and read their headers and body.
