@@ -1,23 +1,21 @@
 const getAllUsers = async () => {
   const res = await fetch("http://localhost:3000/users");
-  // const response = await axios.get("http://localhost:3000/users");
   const users = await res.json();
   console.log(users);
-  // console.log(response.headers["x-powered-by"]);
+  console.log(res.headers.get("x-powered-by"));
 };
 
 const getOneUser = async () => {
-  const options = {
+  const res = await fetch("http://localhost:3000/users", {
     method: "POST",
-    url: "http://localhost:3000/users",
     headers: {
       "content-type": "application/json",
     },
-    data: { id: "1" },
-  };
-  const response = await axios.request(options);
-  console.log(response.data);
+    body: JSON.stringify({ id: "1" }),
+  });
+  const user = await res.json();
+  console.log(user);
 };
 
 getAllUsers();
-// getOneUser();
+getOneUser();
