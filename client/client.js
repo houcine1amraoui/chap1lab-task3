@@ -16,6 +16,3 @@ const getOneUser = async () => {
   const user = await res.json();
   console.log(user);
 };
-
-getAllUsers();
-getOneUser();
