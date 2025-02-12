@@ -6,7 +6,7 @@ app.use(json());
 
 app.get("/users", (req, res) => {
   console.log(req.headers["user-agent"]);
-  res.json(users);
+  res.status(404).json(users);
 });
 
 app.post("/users", (req, res) => {
