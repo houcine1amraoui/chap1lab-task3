@@ -4,12 +4,17 @@ const app = express();
 
 app.use(json());
 
-app.get("/users", (req, res) => {
+const simulateDelay = (req, res, next) => {
+  const delay = Math.floor(Math.random() * 1000) + 500;
+  setTimeout(next, delay);
+};
+
+app.get("/users", simulateDelay, (req, res) => {
   console.log(req.headers["user-agent"]);
   res.status(200).json(users);
 });
 
-app.post("/users", (req, res) => {
+app.post("/users", simulateDelay, (req, res) => {
   const givenId = req.body.id;
   const result = users.filter((user) => {
     return user.id === givenId;
