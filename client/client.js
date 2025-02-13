@@ -13,7 +13,7 @@ const getOneUser = async () => {
     headers: {
       "content-type": "application/json",
     },
-    body: JSON.stringify({ id: "1" }),
+    body: { id: "1" },
   });
   const user = await res.json();
   console.log(user);
