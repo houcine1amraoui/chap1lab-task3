@@ -1,8 +1,10 @@
 const getAllUsers = async () => {
   const res = await fetch("http://localhost:3000/users");
+  if (!res.ok) {
+    throw new Error(`HTTP error! status: ${res.status}`);
+  }
   const users = await res.json();
   console.log(users);
-  console.log(res.headers.get("x-powered-by"));
 };
 
 const getOneUser = async () => {
@@ -16,3 +18,5 @@ const getOneUser = async () => {
   const user = await res.json();
   console.log(user);
 };
+
+getAllUsers();
