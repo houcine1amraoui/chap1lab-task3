@@ -17,7 +17,6 @@ export const users = [
 ];
 
 app.get("/users", (req, res) => {
-  console.log(req.headers["user-agent"]);
   res.status(200).json(users);
 });
 
@@ -38,7 +37,6 @@ app.post("/users", (req, res) => {
     password: password,
   };
   users.push(newUser);
-  console.log(users);
   res.json(newUser);
 });
 
