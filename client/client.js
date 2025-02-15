@@ -1,17 +1,35 @@
-const getAllUsers = async () => {
+async function getAllUsers() {
   const res = await fetch("http://localhost:3000/users");
   if (!res.ok) {
     throw new Error(`HTTP error! status: ${res.status}`);
   }
-  const users = await res.json();
-  console.log(users);
-};
+  const users = res.json();
+  return users;
+}
 
-const getOneUser = async () => {
+async function getOneUser() {
+  const id = "1";
+  const res = await fetch(`http://localhost:3000/users/${id}`, {
+    method: "GET",
+  });
+  if (!res.ok) {
+    throw new Error(`HTTP error! status: ${res.status}`);
+  }
+  const user = await res.json();
+  return user;
+}
+
+async function createUser() {
   const res = await fetch("http://localhost:3000/users", {
     method: "POST",
-    body: { id: "1" },
+    body: {
+      email: "test@gmail.com",
+      password: "test123",
+    },
   });
+  if (!res.ok) {
+    throw new Error(`HTTP error! status: ${res.status}`);
+  }
   const user = await res.json();
-  console.log(user);
-};
+  return user;
+}
