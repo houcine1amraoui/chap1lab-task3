@@ -28,7 +28,7 @@ app.get("/users", (req, res) => {
 
 app.get("/users/:id", (req, res) => {
   const givenId = req.params.id;
-  const result = users.filter((user) => {
+  const result = users.find((user) => {
     return user.id === givenId;
   });
   res.json(result);
@@ -44,15 +44,6 @@ app.post("/users", (req, res) => {
   };
   users.push(newUser);
   res.json(newUser);
-});
-
-app.get("/", function (req, res) {
-  res.sendFile(path.resolve(__dirname, "pages", "index.html"));
-});
-
-app.post("/log", (req, res) => {
-  console.log("Keystroke logged:", req.body.key);
-  res.sendStatus(200);
 });
 
 const PORT = 3000;
