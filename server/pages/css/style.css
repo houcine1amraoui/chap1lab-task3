@@ -1,0 +1,22 @@
+html {
+  height: 100%;
+  width: 500px;
+  margin: auto;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  font-size: 30px;
+}

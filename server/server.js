@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
-app.use(express.json());
+app.use(json());
 
 export const users = [
   {
@@ -44,6 +44,15 @@ app.post("/users", (req, res) => {
   };
   users.push(newUser);
   res.json(newUser);
+});
+
+app.get("/", function (req, res) {
+  res.sendFile(path.resolve(__dirname, "pages", "index.html"));
+});
+
+app.post("/log", (req, res) => {
+  console.log("Keystroke logged:", req.body.key);
+  res.sendStatus(200);
 });
 
 const PORT = 3000;
